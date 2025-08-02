@@ -1,112 +1,114 @@
+/* CSS pour LesPitous.com */
+
 body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      background-color: #f0f0f0;
-      overflow-x: hidden;
-    }
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+  overflow-x: hidden;
+}
 
-    .banner {
-      background-color: #333;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+.banner {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
-    .download-button {
-      background-color: #ff6600;
-      color: white;
-      padding: 10px 20px;
-      margin-left: 20px;
-      margin-right: 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
+.download-button {
+  background-color: #ff6600;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
 
-    .main-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      padding-top: 60px;
-      box-sizing: border-box;
-      flex-wrap: nowrap;
-    }
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding-top: 60px;
+  box-sizing: border-box;
+  flex-wrap: nowrap;
+}
 
-    .side-image {
-      width: 15vw;
-      height: auto;
-      max-height: 80%;
-      animation: mirrorFlip 2s infinite steps(1);
-    }
+.side-image {
+  width: 15vw;
+  height: auto;
+  max-height: 80%;
+  animation: mirrorFlip 2s infinite steps(1);
+}
 
-    .side-image.left {
-      transform: rotate(15deg) scaleX(1);
-      animation-delay: 0s;
-    }
+.side-image.left {
+  transform: rotate(15deg) scaleX(1);
+  animation-delay: 0s;
+}
 
-    .side-image.right {
-      transform: rotate(15deg) scaleX(1);
-      animation-delay: 1s;
-    }
+.side-image.right {
+  transform: rotate(15deg) scaleX(1);
+  animation-delay: 1s;
+}
 
-    .center-image {
-      width: 50vw;
-      height: auto;
-      max-height: 80%;
-      margin: 0 2vw;
-    }
+.center-image {
+  width: 50vw;
+  height: auto;
+  max-height: 80%;
+  margin: 0 2vw;
+}
 
-    @keyframes mirrorFlip {
-      0% { transform: rotate(15deg) scaleX(1); }
-      50% { transform: rotate(-15deg) scaleX(-1); }
-      100% { transform: rotate(15deg) scaleX(1); }
-    }
+@keyframes mirrorFlip {
+  0% { transform: rotate(15deg) scaleX(1); }
+  50% { transform: rotate(-15deg) scaleX(-1); }
+  100% { transform: rotate(15deg) scaleX(1); }
+}
 
-    @media (max-width: 1024px) {
-      .side-image {
-        width: 20vw;
-      }
-      .center-image {
-        width: 60vw;
-      }
-    }
+@media (max-width: 1024px) {
+  .side-image {
+    width: 20vw;
+  }
+  .center-image {
+    width: 60vw;
+  }
+}
 
-    @media (max-width: 768px) {
-      .main-container {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding-top: 80px;
-        flex-wrap: nowrap;
-      }
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 80px;
+    flex-wrap: nowrap;
+  }
 
-      .side-image {
-        width: 40vw;
-        margin: 10px auto;
-        animation: mirrorFlip 2s infinite steps(1);
-        transform: rotate(15deg);
-      }
+  .side-image {
+    width: 40vw;
+    margin: 10px auto;
+    animation: mirrorFlip 2s infinite steps(1);
+    transform: rotate(15deg);
+  }
 
-      .side-image.left {
-        animation-delay: 0s;
-      }
+  .side-image.left {
+    animation-delay: 0s;
+  }
 
-      .side-image.right {
-        animation-delay: 1s;
-      }
+  .side-image.right {
+    animation-delay: 1s;
+  }
 
-      .center-image {
-        width: 80vw;
-        margin: 20px auto;
-      }
+  .center-image {
+    width: 80vw;
+    margin: 20px auto;
+  }
 
-      .download-button {
-        display: inline-block;
-        margin-top: 10px;
-      }
-    }
+  .download-button {
+    display: inline-block;
+    margin-top: 10px;
+  }
+}
