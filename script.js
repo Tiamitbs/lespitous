@@ -36,3 +36,25 @@ document.addEventListener('click', (e) => {
     paw.remove();
   }, 2000);
 });
+
+
+// Popup rigolo au clic sur Télécharger
+    document.getElementById('downloadBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      const popup = document.createElement('div');
+      popup.innerText = 'Oh non ! Les Pitous sont en train de finir l\'application ! 🐶🛠️';
+      popup.style.position = 'fixed';
+      popup.style.top = '50%';
+      popup.style.left = '50%';
+      popup.style.transform = 'translate(-50%, -50%)';
+      popup.style.background = '#fff8dc';
+      popup.style.border = '3px solid #ff6600';
+      popup.style.padding = '20px';
+      popup.style.borderRadius = '20px';
+      popup.style.fontSize = '1.2em';
+      popup.style.fontWeight = 'bold';
+      popup.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+      popup.style.zIndex = '2000';
+      document.body.appendChild(popup);
+      setTimeout(() => popup.remove(), 3000);
+    });
