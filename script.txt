@@ -93,8 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!window.snake) {
       const options = {
         gridSize: 20,
-        initialSpeed: 5,
-        speedStepEvery: 2,
+        initialSpeed: 8,
+        speedStepEvery: 3,
         maxSpeed: 14,
         assetsPath: 'images/snake/', // <-- ajuste ce chemin selon l'endroit où sont tes PNG
         // (facultatif) scoreEl: document.getElementById('score'),

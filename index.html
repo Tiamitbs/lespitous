@@ -12,6 +12,7 @@
     <a href="#" class="download-button" id="downloadBtn">Télécharger</a>
     <span>Et sauvez 20% sur le prix des billets</span>
   </div>
+  <br>
 
   <div class="main-container">
     <img src="images/side_chien_sbg.png" alt="Décor gauche" class="side-image left">
@@ -19,6 +20,56 @@
     <img src="images/side_chien_sbg.png" alt="Décor droite" class="side-image right">
   </div>
 
+  <!-- [AJOUT] Modale Serpent -->
+<div class="modal-overlay" id="snakeModal" aria-hidden="true">
+  <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="snakeTitle">
+    <button class="modal-close" id="btnClose" aria-label="Fermer la fenêtre">×</button>
+
+    <h2 id="snakeTitle">Serpent 🐍</h2>
+
+    <div class="scorebar">
+      <span>Score: <strong id="score">0</strong></span>
+      <span>Meilleur: <strong id="highScore">0</strong></span>
+    </div>
+
+    <canvas id="snakeCanvas" width="480" height="480"></canvas>
+
+    <div id="instructions">
+      Utilise les flèches (ou WASD). Sur mobile, touche les flèches ci‑dessous.
+    </div>
+
+    <div class="controls-mobile" aria-label="Contrôles tactiles">
+      <div class="dpad">
+        <button id="btnUp" aria-label="Haut">▲</button>
+        <div class="middle">
+          <button id="btnLeft" aria-label="Gauche">◀</button>
+          <button id="btnRight" aria-label="Droite">▶</button>
+        </div>
+        <button id="btnDown" aria-label="Bas">▼</button>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button id="btnRestart">Rejouer</button>
+    </div>
+  </div>
+</div>
+  <!-- [FIN AJOUT] Modale Serpent -->
+
+  <script src="snakeGame.js"></script>
   <script src="script.js"></script>
 </body>
+<footer class="footer">
+  <div class="conteneur-copyright">
+    <p id="copyright">© 2024 LesPitous.com. Tous droits réservés.</p>
+  </div>
+  
+
+  <img id="playSnake"
+     src="images/snake/snake_icon.png"
+     alt="Jouer au Serpent"
+     style="cursor:pointer; max-width: 220px;"
+     aria-describedby="snakeCtaHint">
+  <p id="snakeCtaHint" class="sr-only">Clique pour ouvrir le mini‑jeu du Serpent</p>
+</footer>
 </html>
