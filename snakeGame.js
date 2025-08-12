@@ -83,6 +83,9 @@
       // Listeners
       this._onKeyDown = (e) => this._handleKeyDown(e);
       this._visibility = () => { if (document.hidden) this.pause(); };
+
+      this._onResize = () => { this._resizeCanvasToDisplaySize(); this._draw(); };
+      
       this._bindControls(true);
 
       // Contrôles tactiles (si présents)
@@ -416,7 +419,14 @@
       const method = on ? 'addEventListener' : 'removeEventListener';
       document[method]('keydown', this._onKeyDown, { passive: false });
       document[method]('visibilitychange', this._visibility);
-      window[method]('resize', () => this._resizeCanvasToDisplaySize());
+      //window[method]('resize', () => this._resizeCanvasToDisplaySize());
+      window[method]('resize', this._onResize);
+
+    }
+
+    refreshSize() {
+      this._resizeCanvasToDisplaySize();
+      this._draw();
     }
 
     _wireTouchButtons(on) {

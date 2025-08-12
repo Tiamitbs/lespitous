@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.snake = new SnakeGame(canvas, options);
     }
     window.snake.start();
-
+    window.snake.refreshSize();
   }
 
   function closeSnakeModal() {

@@ -149,26 +149,29 @@ body {
 
 /* --- Overlay + Modale --- */
 .modal-overlay {
-  align-items: left; justify-content: center;
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.5);
-  display: none; /* visible quand ouverte */
-  align-items: center; justify-content: center;
+  display: none;              /* caché par défaut */
+  align-items: center;
+  justify-content: center;
   z-index: 1000;
 }
 
 .modal-overlay.open { display: flex; }
 
 .modal-dialog {
+  position: relative;
   background: #fff;
   width: min(92vw, 640px);
-  max-height: 90vh;
+  max-height: 90svh;   /* svh = plus fiable sur mobile que vh */
+  overflow: auto;      /* permet de scroller si le contenu est trop haut */
   border-radius: 16px;
   padding: 16px 16px 20px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.25);
   display: grid;
   gap: 12px;
 }
+
 
 .modal-close {
   position: absolute;
@@ -199,15 +202,59 @@ body {
 /* Contrôles tactiles (affichés surtout sur mobile) */
 .controls-mobile { display: none; }
 @media (max-width: 768px) {
-  .controls-mobile { display: block; }
-  .dpad { display: grid; place-items: center; gap: 8px; }
-  .dpad .middle { display: flex; gap: 24px; }
+.controls-mobile {
+    display: block;
+    margin-top: 8px;              /* un peu d’air sous le canvas */
+  }
+
+  .dpad { 
+    display: grid; 
+    place-items: center; 
+    gap: 8px; 
+  }
+
+  .dpad .middle { 
+    display: flex; 
+    gap: 24px; 
+  }
+
   .dpad button {
-    font-size: 1.2rem; padding: 12px 16px;
-    border-radius: 10px; border: 2px solid #98d47a;
-    background: #eaffd4; cursor: pointer;
+    font-size: 1.2rem; 
+    padding: 12px 16px;
+    min-width: 56px;              /* + grande zone cliquable */
+    min-height: 56px;
+    border-radius: 10px; 
+    border: 2px solid #98d47a;
+    background: #eaffd4; 
+    cursor: pointer;
+
+    /* Améliorations tactiles */
+    touch-action: manipulation;           /* enlève les délais ~300ms */
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;                    /* évite la sélection accidentelle */
+  }
+
+  .dpad button:active {
+    transform: scale(0.98);               /* petit feedback au tap */
   }
 }
+
+/* Mobile: ne jamais dépasser l'écran en hauteur */
+@media (max-width: 768px) {
+  #snakeCanvas {
+    /* carré, borné par la largeur ET ~70% de la hauteur visible */
+    width: min(90svw, 70svh);
+    height: auto;          /* aspect-ratio s'applique */
+    aspect-ratio: 1 / 1;
+    display: block;
+    margin-inline: auto;   /* centré */
+  }
+
+  /* un peu plus compact pour gagner de l'espace vertical */
+  .modal-dialog { padding: 12px; }
+  .scorebar { font-size: 1rem; }
+}
+
 
 .actions {
   display: flex; justify-content: center; gap: 12px;
